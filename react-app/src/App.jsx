@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
+export default class App extends React.Component {
+  render() {
+    return (
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <form>
+          <h1>Termék hozzáadása a kosárhoz</h1>
+          <label htmlFor="input_nev">Termék neve: </label>
+          <input type="text" name="input_nev" id="input_nev" placeholder="Név..." /><br />
+          <label htmlFor="input_ar">Ár: </label>
+          <input type="number" name="input_ar" id="input_ar" value={0} /><br />
+          <label htmlFor="input_db">Mennyiség: </label>
+          <input type="number" name="input_db" id="input_db" value={0} /><br />
+          <input type="button" id="btn_submit" name="btn_submit" value="Hozzáadás a kosárhoz" />
+        </form>
+        <hr />
+        <h3>A kosár tartalma</h3>
+        <ul></ul>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    )
+  }
 }
-
-export default App
